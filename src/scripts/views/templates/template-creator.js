@@ -1,39 +1,73 @@
 import CONFIG from '../../globals/config';
 
-const createMovieDetailTemplate = (movie) => `
-  <h2 class="movie__title">${movie.title}</h2>
-  <img class="movie__poster" src="${CONFIG.BASE_IMAGE_URL + movie.poster_path}" alt="${movie.title}" />
-  <div class="movie__info">
-  <h3>Information</h3>
-    <h4>Tagline</h4>
-    <p>${movie.tagline}</p>
-    <h4>Release Date</h4>
-    <p>${movie.release_date}</p>
-    <h4>Duration</h4>
-    <p>${movie.runtime} minutes</p>
-    <h4>Rating</h4>
-    <p>${movie.vote_average}</p>
-  </div>
-  <div class="movie__overview">
-    <h3>Overview</h3>
-    <p>${movie.overview}</p>
-  </div>
-`;
+const createRestoDetailTemplate = (detail) => {
+  function restoDetailFoods() {
+    const listContainer = document.querySelector('#foods_drinks_list');
+    const menuTitle = document.querySelector('#menu_title');
+    menuTitle.innerHTML = '<h2>Food Menu</h2>';
+    listContainer.innerHTML = '';
+    detail.menus.foods.forEach((item) => {
+      listContainer.innerHTML += `<p class="menu-item" tabindex="0">${item.name}</p>`;
+    });
+  }
 
-const createMovieItemTemplate = (movie) => `
-  <div class="movie-item">
-    <div class="movie-item__header">
-      <img class="movie-item__header__poster" alt="${movie.title}"
-           src="${movie.backdrop_path ? CONFIG.BASE_IMAGE_URL + movie.backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}">
-      <div class="movie-item__header__rating">
-        <p>⭐️<span class="movie-item__header__rating__score">${movie.vote_average}</span></p>
-      </div>
-    </div>
-    <div class="movie-item__content">
-      <h3><a href="/#/detail/${movie.id}">${movie.title}</a></h3>
-      <p>${movie.overview}</p>
-    </div>
-  </div>
+  function restoDetailDrinks() {
+    const listContainer = document.querySelector('#foods_drinks_list');
+    const menuTitle = document.querySelector('#menu_title');
+    menuTitle.innerHTML = '<h2>Drink Menu</h2>';
+    listContainer.innerHTML = '';
+    detail.menus.drinks.forEach((item) => {
+      listContainer.innerHTML += `<p class="menu-item">${item.name}</p>`;
+    });
+  }
+
+  setTimeout(() => {
+    document.getElementById('drinks_btn').addEventListener('click', restoDetailDrinks);
+    document.getElementById('foods_btn').addEventListener('click', restoDetailFoods);
+    restoDetailFoods();
+  }, 500);
+  return `
+    <h1 tabindex="0">Restaurant Details</h1>
+    <article class="resto-detail" id="resto_detail">
+        <section>
+            <img src="${CONFIG.BASE_IMAGE_URL + detail.pictureId}" alt="">
+            <div class="caption">
+                <div tabindex="0">
+                    <h3>${detail.name}</h3>
+                    <p>${detail.address}, ${detail.city} ⭐${detail.rating}</p>
+                    <p class="description">${detail.description}</p>
+                </div>
+                <div class="btn-wrapper">
+                    <input aria-label="add to favorite button" class="btn-size" type="image" src="./icons/love.svg">
+                    <div class="menus-btn">
+                      <button class="btn" id="foods_btn">🍽️Foods</button>
+                      <button class="btn" id="drinks_btn">🧋drinks</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+    <h2 id="menu_title" tabindex="0"></h2>
+    <article class="container list" id="foods_drinks_list">
+
+    </article>
+  `;
+};
+
+const createRestoListTemplate = (resto) => `
+  <section>
+        <img src="${CONFIG.BASE_IMAGE_URL + resto.pictureId}" alt="">
+        <div class="caption">
+            <div tabindex="0">
+                <h3>${resto.name}</h3>
+                <p>${resto.city} ⭐${resto.rating}</p>
+            </div>
+            <div class="btn-wrapper">
+                <input aria-label="add to favorite button" class="btn-size" type="image" src="./icons/love.svg">
+                <a aria-label="See restaurant button" class="btn" href="#/resto-detail/${resto.id}">Detail</a>
+            </div>
+        </div>
+  </section>
   `;
 
-export { createMovieItemTemplate, createMovieDetailTemplate };
+export { createRestoListTemplate, createRestoDetailTemplate };

@@ -7,6 +7,7 @@ const navbarResObj = new NavResponsive();
 
 class App {
   constructor() {
+    this._content = document.querySelector('.mainContent');
     this._initialAppShell();
   }
 
