@@ -1,16 +1,16 @@
 import 'regenerator-runtime';
 import '../styles/style.scss';
-import { Navbar, NavResponsive } from './navbar';
-import FoodList from './food-list';
+import './component/jumbo-tron';
+import App from './views/app';
 import swRegister from './utils/sw-register';
 
-swRegister();
+const app = new App();
 
-const navbarObj = new Navbar();
-navbarObj.onScroll();
+window.addEventListener('hashchange', () => {
+  app.renderPage();
+});
 
-const navbarResObj = new NavResponsive();
-navbarResObj.onResize();
-
-const foodListObj = new FoodList();
-foodListObj.showData();
+window.addEventListener('load', () => {
+  app.renderPage();
+  swRegister();
+});
