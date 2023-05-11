@@ -1,4 +1,4 @@
-import Super from './super';
+import Super from '../super';
 
 export class Navbar extends Super {
   constructor() {

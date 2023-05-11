@@ -166,16 +166,17 @@ a {
 
 
 main {
+    min-height: 75vh;
     h1 {
         text-align: center;
-        margin-top: 2.5em;
+        margin: 2.5em .2em 0 .2em;
     }
 
     h2 {
         text-align: center;
         color: $color-title;
         font-size: x-large;
-        margin-top: 2em;
+        margin: 2.5em .2em 0 .2em;
     }
 
     h3 {
@@ -224,6 +225,12 @@ main {
 
             section {
                 @include my-card;
+
+                .caption {
+                    .btn-wrapper {
+                        justify-content: end !important;
+                    }
+                }
             }
         }
 
@@ -255,6 +262,12 @@ main {
         }
 
         &.customer-reviews {
+            margin-top: 1em;
+
+            h2 {
+                margin-bottom: 1em !important;
+            }
+
             section {
                 @include my-card;
                 margin-bottom: 1.5em;

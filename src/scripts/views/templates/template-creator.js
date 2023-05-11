@@ -62,7 +62,7 @@ const createRestoDetailTemplate = (detail) => {
                     <p class="description">${detail.description}</p>
                 </div>
                 <div class="btn-wrapper">
-                    <input aria-label="add to favorite button" class="btn-size" type="image" src="./icons/love.svg">
+                    <div id="likeButtonContainer"></div>
                     <div class="menus-btn">
                       <button class="btn" id="foods_btn">🍽️Foods</button>
                       <button class="btn" id="drinks_btn">🧋drinks</button>
@@ -90,11 +90,23 @@ const createRestoListTemplate = (resto) => `
           <p>${resto.city} ⭐${resto.rating}</p>
       </div>
       <div class="btn-wrapper">
-          <input aria-label="add to favorite button" class="btn-size" type="image" src="./icons/love.svg">
-          <a aria-label="See restaurant button" class="btn" href="#/resto-detail/${resto.id}">Detail</a>
+          <a aria-label="See detail restaurant button" class="btn" href="#/resto-detail/${resto.id}">Detail</a>
       </div>
     </div>
   </section>
-  `;
+`;
 
-export { createRestoListTemplate, createRestoDetailTemplate };
+const createLikeButtonTemplate = () => `
+  <input aria-label="add to favorite button" class="btn-size" id="likeButton" type="image" src="./icons/love.svg">
+`;
+
+const createLikedButtonTemplate = () => `
+  <input aria-label="delete from favorite button" class="btn-size" id="likeButton" type="image" src="./icons/loved.svg">
+`;
+
+export {
+  createRestoListTemplate,
+  createRestoDetailTemplate,
+  createLikeButtonTemplate,
+  createLikedButtonTemplate,
+};
