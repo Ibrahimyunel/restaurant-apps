@@ -1,4 +1,4 @@
-import { Navbar, NavResponsive } from '../navbar';
+import { Navbar, NavResponsive } from '../handler/navbar';
 import UrlParser from '../routes/url-parser';
 import routes from '../routes/routes';
 
