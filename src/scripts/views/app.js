@@ -16,11 +16,20 @@ class App {
     navbarResObj.onResize();
   }
 
+  _skipContent() {
+    const skipContentBtn = document.querySelector('.skip-content');
+    skipContentBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      document.querySelector('.mainContent').focus();
+    });
+  }
+
   async renderPage() {
     const url = UrlParser.parseActiveUrlWithCombiner();
     const page = routes[url];
     this._content.innerHTML = await page.render();
     await page.afterRender();
+    this._skipContent();
   }
 }
 

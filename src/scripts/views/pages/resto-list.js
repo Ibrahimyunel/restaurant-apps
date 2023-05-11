@@ -6,7 +6,7 @@ const RestoList = {
     return `
       <div class="content">
         <jumbo-tron></jumbo-tron>
-        <h2 id="restaurants" tabindex="0">Our Restaurants</h2>
+        <h2 tabindex="0">Our Restaurants</h2>
         <article class="container list" id="resto_list">
         </article>
       </div>
