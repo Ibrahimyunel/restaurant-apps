@@ -29,7 +29,7 @@ Scenario('like and unlike one resto', async ({ I }) => {
   I.click(detailRestoBtn);
 
   const unlikeRestoBtn = '[aria-label="delete from favorite button"]';
-  I.waitForElement(unlikeRestoBtn, 2);
+  I.waitForElement(unlikeRestoBtn, 4);
   I.seeElement(unlikeRestoBtn);
   I.click(unlikeRestoBtn);
 
