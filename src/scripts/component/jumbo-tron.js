@@ -3,7 +3,12 @@ class Jumbotron extends HTMLElement {
     this.innerHTML = `
       <section class="jumbotron">
         <div class="main-img">
-            <img src="./images/hero-image_1.jpg" alt="">
+            <picture>
+              <source media="(max-width: 600px)" srcset="./images/hero-image_1-small.webp" type="image/webp">
+              <source media="(max-width: 600px)" srcset="./images/hero-image_1-small.jpg" type="image/jpeg">
+              <source media="(min-width: 601px)" srcset="./images/hero-image_1-large.webp" type="image/webp">
+              <img src="./images/hero-image_1-large.jpg" alt="">
+            </picture>
         </div>
         <div class="main-text">
           <h1>Just find your location and choose what you want to eat

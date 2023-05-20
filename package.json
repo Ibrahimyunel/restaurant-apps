@@ -7,7 +7,8 @@
     "start-dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "serve": "http-server dist",
-    "build-serve": "npm run build && npm run serve",
+    "build-image": "node sharp.js",
+    "build-serve": "npm run build-image && npm run build && npm run serve",
     "lint": "eslint ./src",
     "test": "karma start",
     "e2e": "codeceptjs run --steps"
@@ -29,6 +30,9 @@
     "eslint-plugin-import": "^2.27.5",
     "html-webpack-plugin": "^5.5.1",
     "http-server": "^14.1.1",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-webp-webpack-plugin": "^3.3.6",
+    "imagemin-webpack-plugin": "^2.4.2",
     "jasmine-ajax": "^4.0.0",
     "jasmine-core": "^4.2.0",
     "karma": "^5.2.3",
@@ -40,6 +44,7 @@
     "puppeteer": "^20.2.1",
     "sass": "^1.62.0",
     "sass-loader": "^13.2.2",
+    "sharp": "^0.32.1",
     "style-loader": "^3.3.1",
     "url-loader": "^4.1.1",
     "webpack": "^5.73.0",
@@ -55,6 +60,7 @@
   "dependencies": {
     "axios": "^1.4.0",
     "idb": "^7.1.1",
+    "lazysizes": "^5.3.2",
     "regenerator-runtime": "^0.13.9",
     "workbox-window": "^6.5.4"
   }
