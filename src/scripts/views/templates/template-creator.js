@@ -83,7 +83,7 @@ const createRestoDetailTemplate = (detail) => {
 
 const createRestoListTemplate = (resto) => `
   <section>
-    <img src="${CONFIG.BASE_IMAGE_URL + resto.pictureId}" alt="">
+    <img class="lazyload" data-src="${CONFIG.BASE_IMAGE_URL + resto.pictureId}" alt="">
     <div class="caption">
       <div tabindex="0">
           <h3>${resto.name}</h3>
