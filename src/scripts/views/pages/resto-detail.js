@@ -28,7 +28,7 @@ const RestoDetail = {
           pictureId: detail.pictureId,
         },
       });
-    }, 500);
+    }, 800);
   },
 };
 
