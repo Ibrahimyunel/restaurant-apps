@@ -14,12 +14,12 @@ exports.config = {
     Puppeteer: {
       url: 'http://127.0.0.1:9000',
       show: true,
-      waitForNavigation: "networkidle0",
-      windowSize: '1200x900'
-    }
+      waitForNavigation: 'networkidle0',
+      windowSize: '1200x900',
+    },
   },
   include: {
-    I: './steps_file.js'
+    I: './steps_file.js',
   },
-  name: 'restaurant-apps'
-}
+  name: 'restaurant-apps',
+};

@@ -18,6 +18,7 @@ const RestoFavorite = {
     restos.forEach((resto) => {
       restosContainer.innerHTML += createRestoListTemplate(resto);
     });
+    console.log(restos);
     if (!restos.length) {
       restosContainer.innerHTML = `
       <section>
