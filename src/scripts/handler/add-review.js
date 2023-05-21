@@ -1,10 +1,9 @@
-import axios from 'axios';
 import API_ENDPOINT from '../globals/api-endpoint';
+import UrlParser from '../routes/url-parser';
 
 class AddReviewHandler {
   constructor() {
     this.reviewData = [null, null];
-    this.reviewerId = Date.now();
   }
 
   formView = () => `
@@ -43,15 +42,17 @@ class AddReviewHandler {
       document.getElementById('errMessage').textContent = 'Oppss.. Jangan lupa masukan Review kamu';
       document.getElementById('review').focus();
     } else {
-      // LGTM but it doesn't work so if you have any idea you can tell me please,
-      // this is non mandatory feature so if you have no idea as well just nevermind tho :)
-      axios.post(
-        API_ENDPOINT.ADD_REVIEW,
-        {
-          id: this.reviewerId, name: this.reviewData[0], review: this.reviewData[1],
-        },
-        { header: { 'Content-Type': 'application/json' } },
-      ).catch((err) => console.log(err));
+      const url = UrlParser.parseActiveUrlWithoutCombiner();
+      const bodyReq = {
+        "id": url.id,
+        "name": this.reviewData[0],
+        "review": this.reviewData[1]
+      }
+      fetch(API_ENDPOINT.ADD_REVIEW, {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(bodyReq),
+      });
     }
   };
 
