@@ -1,4 +1,4 @@
-name: New Continuous Integration
+name: Newest Continuous Integration
  
 on:
   pull_request:
