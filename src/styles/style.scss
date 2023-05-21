@@ -2,7 +2,7 @@ $main-color-bg: #cadf78;
 $sec-color-bg: #78d8df;
 $color-dark: black;
 
-$color-title: #FF6E31;
+$color-title: #e64f0f;
 $color-title-hover: #820000;
 
 $logo-color1: #FB2576;
@@ -188,6 +188,10 @@ main {
 
     article {
         section {
+            .empty-msg {
+                text-align: center;
+                padding: 3em .5em;
+            }
             img {
                 width: 100%;
                 object-fit: cover;

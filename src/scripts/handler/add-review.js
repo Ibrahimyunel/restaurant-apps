@@ -44,12 +44,12 @@ class AddReviewHandler {
     } else {
       const url = UrlParser.parseActiveUrlWithoutCombiner();
       const bodyReq = {
-        "id": url.id,
-        "name": this.reviewData[0],
-        "review": this.reviewData[1]
-      }
+        id: url.id,
+        name: this.reviewData[0],
+        review: this.reviewData[1],
+      };
       const response = await fetch(API_ENDPOINT.ADD_REVIEW, {
-        method: "POST",
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(bodyReq),
       });
