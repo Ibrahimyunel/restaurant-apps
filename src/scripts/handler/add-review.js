@@ -33,7 +33,7 @@ class AddReviewHandler {
     this.reviewData[1] = review;
   };
 
-  handleAddReview = (e) => {
+  handleAddReview = async (e) => {
     e.preventDefault();
     if (this.reviewData[0] === null) {
       document.getElementById('errMessage').textContent = 'Oppss.. Jangan lupa masukan Nama kamu';
@@ -48,11 +48,12 @@ class AddReviewHandler {
         "name": this.reviewData[0],
         "review": this.reviewData[1]
       }
-      fetch(API_ENDPOINT.ADD_REVIEW, {
+      const response = await fetch(API_ENDPOINT.ADD_REVIEW, {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(bodyReq),
       });
+      console.log(response.status);
     }
   };
 

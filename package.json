@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-dev": "webpack-dev-server --config webpack.dev.js",
+    "build-image": "node sharp.js",
+    "start-dev": "npm run build-image && webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "serve": "http-server dist",
-    "build-image": "node sharp.js",
     "build-serve": "npm run build-image && npm run build && npm run serve",
     "lint": "eslint ./src",
     "test": "karma start",
