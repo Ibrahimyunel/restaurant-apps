@@ -18,6 +18,13 @@ const RestoFavorite = {
     restos.forEach((resto) => {
       restosContainer.innerHTML += createRestoListTemplate(resto);
     });
+    if (!restos.length) {
+      restosContainer.innerHTML = `
+      <section>
+        <h3 class="empty-msg">Kamu belum punya Favorite Restaurant!</h3>
+      <section>
+      `;
+    }
   },
 };
 

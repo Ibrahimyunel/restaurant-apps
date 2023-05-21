@@ -6,17 +6,13 @@ import { StaleWhileRevalidate } from 'workbox-strategies';
 precacheAndRoute(self.__WB_MANIFEST);
 
 // Handle images:
-const imageRoute = new Route(({ request }) => {
-  return request.destination === 'image'
-}, new StaleWhileRevalidate({
-  cacheName: 'images'
+const imageRoute = new Route(({ request }) => request.destination === 'image', new StaleWhileRevalidate({
+  cacheName: 'images',
 }));
 
 // Handle resto-data:
-const restoDataRoute = new Route(({ url }) => {
-  return url.origin === 'https://restaurant-api.dicoding.dev';
-}, new StaleWhileRevalidate({
-  cacheName: 'resto-data'
+const restoDataRoute = new Route(({ url }) => url.origin === 'https://restaurant-api.dicoding.dev', new StaleWhileRevalidate({
+  cacheName: 'resto-data',
 }));
 
 // Register routes
