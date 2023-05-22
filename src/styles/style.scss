@@ -147,7 +147,8 @@ a {
         z-index: -1;
         background-color: $main-color-bg;
 
-        picture, img {
+        picture,
+        img {
             width: 1000px;
             height: 100vh;
             object-fit: cover;
@@ -169,6 +170,7 @@ a {
 
 main {
     min-height: 75vh;
+
     h1 {
         text-align: center;
         margin: 2.5em .2em 0 .2em;
@@ -192,6 +194,7 @@ main {
                 text-align: center;
                 padding: 3em .5em;
             }
+            
             img {
                 width: 100%;
                 object-fit: cover;
@@ -233,8 +236,14 @@ main {
                 @include my-card;
 
                 .caption {
+                    display: flex;
+                    flex-direction: column;
+                    min-height: 11em;
+
                     .btn-wrapper {
                         justify-content: end !important;
+                        position: relative;
+                        margin-top: auto;
                     }
                 }
             }
@@ -304,7 +313,8 @@ main {
                     border: 2px solid $main-color-bg;
                     border-radius: .5em;
 
-                    &:focus-visible, &:focus {
+                    &:focus-visible,
+                    &:focus {
                         outline: unset;
                         box-shadow: 0px 0px 5px 3px $color-title;
                         -webkit-box-shadow: 0px 0px 5px 3px $color-title;
@@ -350,7 +360,9 @@ footer {
 @media only screen and (max-width:1200px) {
     .jumbotron {
         .main-img {
-            picture, img {
+
+            picture,
+            img {
                 width: 100%;
             }
         }
@@ -382,13 +394,13 @@ footer {
         ul {
             display: none;
             position: fixed;
-            padding: 5em 0 0 0;
+            overflow: auto;
+            padding: 5em 0;
             width: 50%;
             height: 100vh;
             margin: auto;
             right: 0;
-            top: 50%;
-            transform: translateY(-50%);
+            top: 0;
             text-align: center;
             background-color: $main-color-bg;
 
