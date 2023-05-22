@@ -7,7 +7,7 @@ export class Navbar extends Super {
   }
 
   navScroll() {
-    if (window.scrollY >= 80 && window.innerWidth >= 768) {
+    if (window.scrollY >= 80) {
       this.navbar.classList.add('nav-scroll');
     } else {
       this.navbar.classList.remove('nav-scroll');
@@ -23,6 +23,7 @@ export class NavResponsive extends Super {
   constructor() {
     super();
     this.navbarList = document.getElementById('navbar_list');
+    this.navbarItems = document.querySelectorAll('#navbar_list > li > a');
     this.openMenu = document.getElementById('open_menu');
     this.closeMenu = document.getElementById('close_menu');
     this.mainContent = document.querySelector('main');
@@ -60,6 +61,7 @@ export class NavResponsive extends Super {
     this.openMenu.addEventListener('click', this.openNavList);
     this.closeMenu.addEventListener('click', this.closeNavList);
     this.mainContent.addEventListener('click', this.closeNavList);
+    this.navbarItems.forEach((item) => item.addEventListener('click', this.closeNavList));
     window.addEventListener('resize', this.debounce(this.windowResize, 300));
   }
 }
