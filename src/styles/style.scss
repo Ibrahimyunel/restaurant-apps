@@ -2,11 +2,11 @@ $main-color-bg: #cadf78;
 $sec-color-bg: #78d8df;
 $color-dark: black;
 
-$color-title: #e64f0f;
-$color-title-hover: #820000;
+$color-title: #830707;
+$color-title-hover: #FF6E31;
 
-$logo-color1: #FB2576;
-$logo-color2: #a597f3;
+$logo-color1: #ff0062;
+$logo-color2: #816eff;
 
 @mixin my-card {
     box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
@@ -54,7 +54,7 @@ html {
     cursor: pointer;
     border-radius: .7em;
     font-weight: 600;
-    border: $color-title .2em solid;
+    border: $color-title .15rem solid;
     background-color: $main-color-bg;
 
     &:hover,
@@ -149,7 +149,7 @@ a {
 
         picture,
         img {
-            width: 1000px;
+            width: 100%;
             height: 100vh;
             object-fit: cover;
         }
@@ -166,7 +166,6 @@ a {
         }
     }
 }
-
 
 main {
     min-height: 75vh;
@@ -355,18 +354,6 @@ footer {
 
 .navbar-res {
     display: block;
-}
-
-@media only screen and (max-width:1200px) {
-    .jumbotron {
-        .main-img {
-
-            picture,
-            img {
-                width: 100%;
-            }
-        }
-    }
 }
 
 @media only screen and (max-width:768px) {
